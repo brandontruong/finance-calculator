@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Webpack App</title>
+  <!-- toolkit styles -->
+  <link rel="stylesheet" href="http://picklescdndev.azureedge.net/develop/assets/toolkit/styles/toolkit.css?v8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+    crossorigin="anonymous"></script>
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    crossorigin="anonymous"></script> -->
+  <script src="http://picklescdndev.azureedge.net/develop/assets/toolkit/scripts/toolkit.js?v8"
+    crossorigin="anonymous"></script>
+  <body>
+    <a id="click_me" class="btn btn-xs btn-outline-primary finance-estimate-cta">Edit</a>
+    <a id="click_me2" class="btn btn-xs btn-outline-primary finance-estimate-cta">Edit 2</a>
+    
+    <!-- to exclude the react of the final bundle, should have these links in the html -->
+    <!-- <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> -->
+    <script type="text/javascript">
+      function callback(res) {
+        console.log(res);
+      }
+      const config = {
+        fixedPrice: 10000,
+        interestRate: 6.25,
+        paymentOption: 'PERIOD_START',
+        financeFees: 1128.00,
+        terms: [
+          { id: '32', term: '12', balloon: '0', description: '1 year'},
+          { id: '33', term: '24', balloon: '0', description: '2 years'},
+          { id: '34', term: '36', balloon: '0', description: '3 years'},
+          { id: '35', term: '48', balloon: '0', description: '4 years'},
+          { id: '36', term: '60', balloon: '0', description: '5 years'},
+        ],
+        callback
+      };
+      const config2 = {
+        fixedPrice: 26589,
+        interestRate: 6.25,
+        paymentOption: 'PERIOD_START',
+        financeFees: 1128.00,
+        terms: [
+          { id: '32', term: '12', balloon: '0', description: '1 year'},
+          { id: '33', term: '24', balloon: '0', description: '2 years'},
+          { id: '34', term: '36', balloon: '0', description: '3 years'},
+          { id: '35', term: '48', balloon: '0', description: '4 years'},
+          { id: '36', term: '60', balloon: '0', description: '5 years'},
+        ],
+        callback
+      };
+      $(function () { // I use jQuery in this example
+        $('#click_me').click(function () {
+          $(document).trigger("finance-calculator-event", config);
+        });
+        $('#click_me2').click(function () {
+          $(document).trigger("finance-calculator-event", config2);
+        });
+      });
+    </script>
+  </body>
+
+</html>
